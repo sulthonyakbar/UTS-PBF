@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Session;
 
 class LoginController extends Controller
 {
     public function login()
     {
-            return view('login');
+        return view('login', ['title' => 'Login | SiDesa']);
     }
 
     public function loginPost(Request $request)
@@ -27,9 +28,25 @@ class LoginController extends Controller
         }
     }
 
-    function logout()
+    public function logout()
     {
         Auth::logout();
         return redirect('/');
+    }
+
+    public function register()
+    {
+        return view('register', ['title' => 'Register | SiDesa']);
+    }
+
+    public function doRegister(){
+        $data = [
+            'name' => request('name'),
+            'email' => request('email'),
+            'password' => bcrypt(request('password'))
+        ];
+
+        DB::table('users')->insert($data);
+        return redirect('/')->with('success', 'Register Berhasil');
     }
 }

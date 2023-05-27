@@ -15,8 +15,12 @@
                     </div>
                     @endif
 
-                    <form action="{{ route('login') }}" method="post">
+                    <form action="{{ route('register') }}" method="post">
                     @csrf
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Fullname</label>
+                            <input type="name" class="form-control" name="name" id="name" placeholder="Jonathan Doe">
+                        </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
@@ -27,7 +31,8 @@
                         </div>
                         <div class="mb-3">
                             <div class="d-grid">
-                                <button type="submit" class="btn btn-dark">Login</button>
+                                <button type="submit" class="btn btn-dark">Register</button>
+                                <a class="btn btn-primary mt-3" href="/" role="button">Log In</a>
                             </div>
                         </div>
                     </form>
