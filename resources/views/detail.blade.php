@@ -8,6 +8,8 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
+@include('navbar')
+
 <div class="container">
 
 <h3 class="mt-3 mb-3">Detail Data Warga</h3>

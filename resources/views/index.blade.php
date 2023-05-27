@@ -8,7 +8,11 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
+  @include('navbar')
 <div class="container">
+
+  <h4 class="mt-3"> Selamat Datang,<b> {{ Auth::user()->name }} </b></h4>
+
     <h3 class="mt-3">Data Warga</h3>
 
     <a class="btn btn-primary mt-3" href="/warga/tambah" role="button">+ Tambah Data Warga</a>
@@ -35,7 +39,7 @@
       <td>{{$w->pekerjaan}}</td>
       <td>
         <span class="badge text-bg-success"><a href="/warga/detail/{{$w->id_warga}}" class="link-light">Detail</a></span>
-        <span class="badge text-bg-primary"><a href="/warga/edit/{{$w->id_warga}}" class="link-light">Edit</a></span>
+        <span class="badge text-bg-info"><a href="/warga/edit/{{$w->id_warga}}" class="link-light">Edit</a></span>
         <span class="badge text-bg-danger"><a href="/warga/hapus/{{$w->id_warga}}" class="link-light">Hapus</a></span>
       </td>
     </tr>

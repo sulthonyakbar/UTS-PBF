@@ -8,10 +8,17 @@
     <title>Edit Data Warga</title>
 </head>
 <body>
-<div class="container">
+@include('navbar')
 
-    <h3 class="mt-3 mb-3">Edit Data Warga</h3>
+<div class="row justify-content-center mt-3">
+<div class="col-md-8">
+    <div class="card">
 
+    <div class="card-header">
+        <h3 class="mt-3 mb-3">Edit Data Warga</h3>
+    </div>
+
+    <div class="card-body">
     @foreach($warga as $w)
     <form action="/warga/update" method="post" >
         {{csrf_field()}}
@@ -60,6 +67,9 @@
         <button type="submit" class="btn btn-primary">Ubah</button>
     </form>
     @endforeach
+    </div>
+</div>
+</div>
 </div>
 </body>
 </html>

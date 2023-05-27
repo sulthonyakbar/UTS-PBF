@@ -8,10 +8,17 @@
     <title>Tambah Data Warga</title>
 </head>
 <body>
-<div class="container">
+@include('navbar')
 
-    <h3 class="mt-3 mb-3">Tambah Data Warga</h3>
+<div class="row justify-content-center mt-3">
+<div class="col-md-8">
+    <div class="card">
+
+    <div class="card-header">
+        <h3 class="card-title">Tambah Data Warga</h3>
+    </div>
     
+    <div class="card-body">
     <form action="/warga/store" method="post">
         {{csrf_field()}}
         <div class="mb-3">
@@ -57,6 +64,9 @@
         <a class="btn btn-success" href="/warga" role="button">Kembali</a>
         <button type="submit" class="btn btn-primary">Tambah</button>
     </form>
+    </div>
+</div>
+</div>
 </div>
 </body>
 </html>
