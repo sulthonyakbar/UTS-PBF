@@ -6,7 +6,7 @@
         <div class="col-lg-4">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="card-title"><b>SiDesa</b></h3>
+                    <h2 class="card-title"><b>SiDesa | Log In</b></h3>
                 </div>
                 <div class="card-body">
                     @if(Session::has('error'))

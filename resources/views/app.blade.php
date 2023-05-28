@@ -8,6 +8,7 @@
   </head>
   <body>
     <div class="container mt-5">
+      @auth
       <nav class="navbar navbar-expand-lg bg-body-tertiary border">
         <div class="container-fluid">
           <a class="navbar-brand" href="/warga">SiDesa</a>
@@ -16,26 +17,23 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
           
-          @guest
-          <!-- jika user belum login, maka button logout tidak ada -->
-          @endguest
-          
-          @auth
-          <ul class="navbar-nav">
+            <ul class="navbar-nav d-flex justify-content-between">
               <li class="nav-item">
                 <a class="nav-link" href="/warga">Data Warga</a>
               </li>
-          </ul>
-          <form action="{{ route('logout') }}" method="POST" class="d-flex ms-auto mb-2 mb-lg-0">
-              @csrf
-              @method('DELETE')
-              <button class="btn btn-light" type="submit">Log Out</button>
-          </form>
-          @endauth
-          </ul>
+            
+              <li class="nav-item">
+                <form action="{{ route('logout') }}" method="POST" class="d-flex ms-auto mb-2 mb-lg-0">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-light" type="submit">Log Out</button>
+                </form>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
+    @endauth
         @yield('content')
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
