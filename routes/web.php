@@ -29,6 +29,10 @@ Route::group(['middleware' => 'guest'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::delete('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::fallback(function () {
+        //back to previous page
+        return back();
+    });
 
     // Data Warga
     Route::get('/warga', [WargaController::class, 'index']);
