@@ -1,4 +1,4 @@
-@extends('app')
+@extends('navbar')
 
 @section('content')
 
@@ -14,7 +14,7 @@
                     @foreach($warga as $w)
                     <form action="/warga/update" method="post">
                         {{csrf_field()}}
-                        <input type="hidden" name="id_warga" value="{{$w->id}}">
+                        <input type="hidden" name="id_warga" value="{{$w->id_warga}}">
                         <div class="mb-3">
                             <label for="NIK" class="form-label">NIK</label>
                             <input type="text" class="form-control" name="NIK" id="NIK" value="{{$w->nik}}">

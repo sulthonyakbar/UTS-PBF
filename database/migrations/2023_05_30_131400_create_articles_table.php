@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('wargas', function (Blueprint $table) {
-            $table->id('id_warga');
-            $table->string('nik')->unique();
-            $table->string('nama');
-            $table->string('tgl_lahir');
-            $table->string('jenis_kelamin');
-            $table->text('alamat');
-            $table->string('agama');
-            $table->string('pekerjaan');
+        Schema::create('articles', function (Blueprint $table) {
+            $table->id('id_article');
+            $table->string('title');
+            $table->text('content');
+            $table->string('image');
+            $table->integer('category_id');
+            $table->integer('author_id');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('warga');
+        Schema::dropIfExists('articles');
     }
 };
